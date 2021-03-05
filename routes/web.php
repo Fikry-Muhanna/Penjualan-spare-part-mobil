@@ -21,24 +21,17 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/login','App\Http\Controllers\PagesController@login')->name('login');
+Route::get('/login','App\Http\Controllers\Backend\DashboardController@login')->name('login');
 
 
-Route::get('/register','App\Http\Controllers\PagesController@register');
+Route::get('/register','App\Http\Controllers\Backend\DashboardController@register');
 
-
-
-Route::get('/blank', function () {
-    return view('layout.blank');
-});
-
-Route::post('/postlogin','App\Http\Controllers\LoginController@postlogin')->name('postlogin');
+Route::post('/postlogin','App\Http\Controllers\Backend\AuthController@postlogin')->name('postlogin');
 
 Route::get('/customer','App\Http\Controllers\CustomerController@customer')->name('customer');
 
 Route::group(['middleware'=>'CekLoginMiddleware'],function(){
-    Route::get('/dashboard','App\Http\Controllers\PagesController@dashboard');
-    Route::get('/user', function () { return view('page.userdashboard');});
-    Route::get('/logout','App\Http\Controllers\LoginController@logout')->name('logout');
+    Route::get('/dashboard','App\Http\Controllers\Backend\DashboardController@index');
+    Route::get('/logout','App\Http\Controllers\Backend\AuthController@logout')->name('logout');
     
 });

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -14,7 +14,7 @@ class AuthController extends Controller
         $data = User::where('email',$request->email)->firstOrfail();
         if ($data){
             if(Hash::check($request->password,$data->password)){
-                session(['berhasil_login'=>true]);
+                session(['ID_user'=>true]);
                 return redirect('/dashboard');
             }
         }

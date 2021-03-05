@@ -1,4 +1,4 @@
-@extends('home')
+@extends('layout.main')
 
 @section('page_name','Toko Spare Part | Dashboard')
 

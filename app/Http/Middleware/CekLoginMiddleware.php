@@ -16,7 +16,7 @@ class CekLoginMiddleware
      */
     public function handle( $request, Closure $next)
     {
-        if (!session('berhasil_login')){
+        if (!session('ID_user')){
             return redirect('/login');
         }
         return $next($request);

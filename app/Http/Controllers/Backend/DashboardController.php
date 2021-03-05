@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
 
-class PagesController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Show the profile for a given user.
@@ -15,14 +15,14 @@ class PagesController extends Controller
      */
     public function login()
     {
-        return view('layouts.login');
+        return view('Backend.Auth.login');
     }
     public function register()
     {
-        return view('layouts.register');
+        return view('Backend.Auth.register');
     }
-    public function dashboard()
+    public function index()
     {
-        return view('layout.dashboard');
+        return view('Backend.Dashboard.dashboard');
     }
 }
