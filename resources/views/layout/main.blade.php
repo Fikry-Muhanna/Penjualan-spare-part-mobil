@@ -9,11 +9,11 @@
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="adminlte/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="{{asset ('adminlte/plugins/fontawesome-free/css/all.min.css')}}">
   <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="adminlte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <link rel="stylesheet" href="{{asset ('adminlte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
   <!-- Theme style -->
-  <link rel="stylesheet" href="adminlte/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="{{asset ('adminlte/dist/css/adminlte.min.css')}}">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
@@ -25,7 +25,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="adminlte/index3.html" class="nav-link">Home</a>
+        <a href="{{asset ('adminlte/index3.html')}}" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
@@ -108,26 +108,26 @@
 
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
-<script src="adminlte/plugins/jquery/jquery.min.js"></script>
+<script src="{{asset ('adminlte/plugins/jquery/jquery.min.js')}}"></script>
 <!-- Bootstrap -->
-<script src="adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="{{asset ('adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- overlayScrollbars -->
-<script src="adminlte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<script src="{{asset ('adminlte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <!-- AdminLTE App -->
-<script src="adminlte/dist/js/adminlte.js"></script>
+<script src="{{asset ('adminlte/dist/js/adminlte.js')}}"></script>
 
 <!-- PAGE PLUGINS -->
 <!-- jQuery Mapael -->
-<script src="adminlte/plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
-<script src="adminlte/plugins/raphael/raphael.min.js"></script>
-<script src="adminlte/plugins/jquery-mapael/jquery.mapael.min.js"></script>
-<script src="adminlte/plugins/jquery-mapael/maps/usa_states.min.js"></script>
+<script src="{{asset ('adminlte/plugins/jquery-mousewheel/jquery.mousewheel.js')}}"></script>
+<script src="{{asset ('adminlte/plugins/raphael/raphael.min.js')}}"></script>
+<script src="{{asset ('adminlte/plugins/jquery-mapael/jquery.mapael.min.js')}}"></script>
+<script src="{{asset ('adminlte/plugins/jquery-mapael/maps/usa_states.min.js')}}"></script>
 <!-- ChartJS -->
-<script src="adminlte/plugins/chart.js/Chart.min.js"></script>
+<script src="{{asset ('adminlte/plugins/chart.js/Chart.min.js')}}"></script>
 
 <!-- AdminLTE for demo purposes -->
-<script src="adminlte/dist/js/demo.js"></script>
+<script src="{{asset ('adminlte/dist/js/demo.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="adminlte/dist/js/pages/dashboard2.js"></script>
+<script src="{{asset ('adminlte/dist/js/pages/dashboard2.js')}}"></script>
 </body>
 </html>

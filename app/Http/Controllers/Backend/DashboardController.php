@@ -13,15 +13,12 @@ class DashboardController extends Controller
      * @param  int  $id
      * @return \Illuminate\View\View
      */
-    public function login()
-    {
-        return view('Backend.Auth.login');
-    }
-    public function register()
+
+    public function getRegister()
     {
         return view('Backend.Auth.register');
     }
-    public function index()
+    public function getIndex()
     {
         return view('Backend.Dashboard.dashboard');
     }

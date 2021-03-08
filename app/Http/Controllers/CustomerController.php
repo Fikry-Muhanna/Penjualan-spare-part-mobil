@@ -1,61 +1,65 @@
 <?php
- 
+
 namespace App\Http\Controllers;
 
-use App\Customer;
 use Illuminate\Http\Request;
-use Auth;
- 
+
 class CustomerController extends Controller
 {
     public function index()
     {
-        $customer = customers::all();
-        return view('data_customer',compact('customer'));
+        $customer = Post::latest()->paginate(5);
+ 
+        return view('customer.index',compact('customer'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
-    public function add(){
-        return view('customer_add');
+ 
+    public function add()
+    {
+        return view('customer.add');
     }
-    public function store(Request $request)
+ 
+    public function save(Request $request)
     {
         $request->validate([
-            'customer_name'=>'required',
-            'gender'=>'required',
-            'phone_number'=>'required',
-            'address'=>'required',
-            'email'=>'required',
-            'password'=>'required'
+            'title' => 'required',
+            'content' => 'required',
         ]);
-        
-        Customer::create($request->all());
-        return redirect()->route('data_customer')
-                        ->with('success','Data customer berhasil disimpan');
+ 
+        Post::create($request->all());
+ 
+        return redirect()->route('customer.index')
+                        ->with('success','Customer created successfully.');
     }
-    public function show(data_customer $data_customer)
+ 
+    public function detail(Customer $customer)
     {
-        return view (data_customer.edit,compact('customer'));
+        return view('customer.detail',compact('customer'));
     }
-    public function edit(data_customer $data_customer)
+ 
+    public function edit(Customer $customer)
     {
-        return view (data_customer.edit,compact('customer'));
+        return view('customer.edit',compact('customer'));
     }
-    public function update(Request $request, data_customer $data_customer)
+ 
+    public function update(Request $request, Customer $customer)
     {
         $request->validate([
-            'customer_name'=>'required',
-            'gender'=>'required',
-            'phone_number'=>'required',
-            'address'=>'required',
-            'email'=>'required',
-            'password'=>'required'
+            'title' => 'required',
+            'content' => 'required',
         ]);
-        $customer ->update($request->all());
-        return redirect()->route('data_customer')->with ('success','customer done');
+ 
+        $post->update($request->all());
+ 
+        return redirect()->route('customer.index')
+                        ->with('success','Customer updated successfully');
     }
-    public function destroy(customer $customer)
+ 
+    public function delete(Customer $customer)
     {
-        $customer->delete();
-        return redirect()->route('data_customer')->with('success','Customer berhasil dihapus');
+        $post->delete();
+ 
+        return redirect()->route('customer.index')
+                        ->with('success','Customer deleted successfully');
     }
 }
-

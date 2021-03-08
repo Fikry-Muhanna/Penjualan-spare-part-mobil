@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableSuppliers extends Migration
+class CreateMCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateTableSuppliers extends Migration
      */
     public function up()
     {
-        Schema::create('suppliers', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('supplier_name')->length(100);
-            $table->integer('phone_number')->length(12);
-            $table->text('address');
+        Schema::create('m_categories', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->timestamps();
+            $table->string('name',225);
         });
     }
 
@@ -29,6 +27,6 @@ class CreateTableSuppliers extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('suppliers');
+        Schema::dropIfExists('m_categories');
     }
 }
