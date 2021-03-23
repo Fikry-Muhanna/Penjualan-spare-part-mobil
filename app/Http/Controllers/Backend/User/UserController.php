@@ -3,63 +3,62 @@
 namespace App\Http\Controllers\Backend\User;
 
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\DB;
+use App\Repositories\UserAdmin;
 
-class UserController extends Controller
+
+class UserController extends BaseController
 {
-    public function index()
+    public function getIndex()
     {
-        $user = Post::latest()->paginate(5);
- 
-        return view('user.index',compact('user'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        $useradmin = useradmin::latest();
+
+        return view('Backend.User.index', compact('useradmin'));
+
     }
  
-    public function add()
+    public function getAdd()
     {
-        return view('user.add');
+        $form_title = 'Tambah Data User';
+        return view('Backend.User.form', compact('form_title'));
+
     }
  
-    public function save(Request $request)
-    {
-        $request->validate([
-            'title' => 'required',
-            'content' => 'required',
-        ]);
- 
-        Post::create($request->all());
- 
-        return redirect()->route('user.index')
-                        ->with('success','User created successfully.');
-    }
- 
-    public function detail(User $user)
-    {
-        return view('user.detail',compact('user'));
-    }
- 
-    public function edit(User $user)
-    {
-        return view('user.edit',compact('user'));
-    }
- 
-    public function update(Request $request, User $user)
+    public function postSave(Request $request)
     {
         $request->validate([
-            'title' => 'required',
-            'content' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
         ]);
  
-        $post->update($request->all());
- 
-        return redirect()->route('user.index')
-                        ->with('success','User updated successfully');
+        $useradmin = useradmin::find($request->id);
+        $useradmin->name = $request->get("name");
+        $useradmin->email = $request->get("email");
+        $useradmin->password = $request->get("password");
+        $useradmin->save();
+        return redirect("admin/useradmin/index")->with(["message"=>"Berhasil disimpan!","type"=>"success"]);
     }
- 
-    public function delete(User $user)
+    public function getDetail($id)
     {
-        $post->delete();
- 
-        return redirect()->route('user.index')
-                        ->with('success','User deleted successfully');
+        $useradmin = useradmin::find($id);
+        return view("Backend.Useradmin.detail", ["useradmin"=>$useradmin]);
     }
+    
+    public function getDelete($id)
+    {
+        useradmin::deleteById($id);
+        
+        return redirect()->back()->with(["message"=>"User Berhasil dihapus!"]);
+    }
+
+    public function getEdit($id)
+    {
+        $useradmin = useradmin::find($id);
+        $form_title = 'Edit Data User';
+        return view('Backend.User.form',compact('useradmin','form_title'));
+    }
+ 
 }
+

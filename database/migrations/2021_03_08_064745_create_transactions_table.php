@@ -19,7 +19,7 @@ class CreateTransactionsTable extends Migration
             $table->integer('trans_no');
             $table->unsignedBigInteger('customers_id')->nullable();
             $table->foreign('customers_id')->references('id')->on('customers')->onDelete('set null');
-            $table->integer('grand_total');
+            $table->double('grand_total');
             $table->string('created_by',225);
         });
     }

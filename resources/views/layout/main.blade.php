@@ -14,6 +14,8 @@
   <link rel="stylesheet" href="{{asset ('adminlte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset ('adminlte/dist/css/adminlte.min.css')}}">
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
@@ -24,12 +26,7 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{asset ('adminlte/index3.html')}}" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
-      </li>
+      
     </ul>
 
     <!-- SEARCH FORM -->
@@ -61,7 +58,7 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-@include('layouts.partials.sidebar')
+@include('layout.sidebar')
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -81,7 +78,7 @@
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-
+    
     <!-- Main content -->
       <div class="container-fluid">
         @yield('content')
@@ -94,7 +91,7 @@
     <!-- Control sidebar content goes here -->
   </aside>
   <!-- /.control-sidebar -->
-
+  
   <!-- Main Footer -->
   <footer class="main-footer">
     <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
