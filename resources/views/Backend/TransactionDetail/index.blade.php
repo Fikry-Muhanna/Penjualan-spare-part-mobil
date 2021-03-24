@@ -66,10 +66,10 @@
         <td>{{ $d->total }}</td>
         <td>
         <td class="project-actions text-right">
-                          <a class="btn btn-primary btn-sm" href="#">
+                          <a class="btn btn-primary btn-sm" href="{{url('admin/transdetail/detail/' .$d->id)}}">
                               <i class="fas fa-folder">
                               </i>
-                              View
+                              Detail
                           </a>
                           <a class="btn btn-info btn-sm" href="{{url('admin/transdetail/edit/' .$d->id)}}">
                               <i class="fas fa-pencil-alt">

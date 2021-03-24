@@ -62,10 +62,10 @@
         <td>{{ $s->description }}</td>
         <td>
         <td class="project-actions text-right">
-                          <a class="btn btn-primary btn-sm" href="#">
+                          <a class="btn btn-primary btn-sm" href="{{url('admin/sparepart/detail/'.$s->id)}}">
                               <i class="fas fa-folder">
                               </i>
-                              View
+                              Detail
                           </a>
                           <a class="btn btn-info btn-sm" href="{{url('admin/sparepart/edit/'.$s->id)}}">
                               <i class="fas fa-pencil-alt">

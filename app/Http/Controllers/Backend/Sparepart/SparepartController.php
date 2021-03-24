@@ -44,7 +44,13 @@ class SparepartController extends BaseController
     public function getDetail($id)
     {
         $msparepart = msparepart::find($id);
-        return view("msparepart.detail", ["msparepart"=>$msparepart]);
+        return view('Backend.Sparepart.detail', [
+            'name'=>$msparepart->name,
+            'm_categories_id'=>$msparepart->m_categories_id,
+            'price'=>$msparepart->price,
+            'description'=>$msparepart->description
+            ]);
+       
     }
     
     public function getDelete($id)

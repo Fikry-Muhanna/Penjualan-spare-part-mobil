@@ -48,7 +48,14 @@ class TransactionDetailController extends BaseController
     public function getDetail($id)
     {
         $transactiondetail = transactiondetail::find($id);
-        return view("Backend.TransactionDetail.detail", ["transactiondetail"=>$transactiondetail]);
+        return view('Backend.TransactionDetail.detail', [
+            'transactions_id'=>$transactions->transactions_id,
+            'm_sparepart_id'=>$transactions->m_sparepart_id,
+            'sparepart_name'=>$transactions->sparepart_name,
+            'sparepart_price'=>$transactions->sparepart_price,
+            'quantity'=>$transactions->quantity,
+            'total'=>$transactions->total,
+        ]);
     }
     
     public function getDelete($id)

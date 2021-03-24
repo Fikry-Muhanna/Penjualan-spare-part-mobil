@@ -40,7 +40,10 @@ class CustomerController extends BaseController
     public function getDetail($id)
     {
         $customers = Customers::find($id);
-        return view("Customers.detail", ["customers"=>$customers]);
+        return view("Backend.Customer.detail", [
+            'name'=>$customers->name,
+            'phone'=>$customers->phone
+        ]);
     }
     
     public function getDelete($id)

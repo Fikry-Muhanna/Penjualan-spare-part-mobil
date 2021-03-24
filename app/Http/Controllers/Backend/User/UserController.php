@@ -43,7 +43,11 @@ class UserController extends BaseController
     public function getDetail($id)
     {
         $useradmin = useradmin::find($id);
-        return view("Backend.Useradmin.detail", ["useradmin"=>$useradmin]);
+        return view("Backend.User.detail", [
+            'name'=>$useradmin->name,
+            'email'=>$useradmin->email,
+            'password'=>$useradmin->password
+        ]);
     }
     
     public function getDelete($id)

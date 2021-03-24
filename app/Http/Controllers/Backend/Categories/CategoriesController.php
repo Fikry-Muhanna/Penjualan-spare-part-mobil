@@ -39,7 +39,9 @@ class CategoriesController extends BaseController
     public function getDetail($id)
     {
         $mcategories = mcategories::find($id);
-        return view("Backend.Kategori.detail", ["mcategories"=>$mcategories]);
+        return view("Backend.Kategori.detail", [
+            'name'=>$mcategories->name
+        ]);
     }
     
     public function getDelete($id)
