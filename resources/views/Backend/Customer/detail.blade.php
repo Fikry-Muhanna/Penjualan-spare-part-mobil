@@ -20,7 +20,7 @@
               </div>
             </div>
             <div class="card-body">
-            <strong><i class="fas fa-book mr-1"></i> Nama </strong>
+            <strong><i class="fas fa-user mr-1"></i> Nama </strong>
 
             <p class="text-muted"> {{ $name }} </p>
 

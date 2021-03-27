@@ -11,7 +11,7 @@ class SparepartController extends BaseController
 {
     public function getIndex()
     {
-        $msparepart = msparepart::latest();
+        $msparepart = MSparepart::latest();
 
         return view('Backend.Sparepart.index', compact('msparepart'));
 
@@ -33,7 +33,7 @@ class SparepartController extends BaseController
             'description' => 'required',
         ]);
  
-        $msparepart = msparepart::find($request->id);
+        $msparepart = MSparepart::find($request->id);
         $msparepart->name = $request->get("name");
         $msparepart->m_categories_id = $request->get("m_categories_id");
         $msparepart->price = $request->get("price");
@@ -43,7 +43,7 @@ class SparepartController extends BaseController
     }
     public function getDetail($id)
     {
-        $msparepart = msparepart::find($id);
+        $msparepart = MSparepart::find($id);
         return view('Backend.Sparepart.detail', [
             'name'=>$msparepart->name,
             'm_categories_id'=>$msparepart->m_categories_id,
@@ -55,14 +55,14 @@ class SparepartController extends BaseController
     
     public function getDelete($id)
     {
-        msparepart::deleteById($id);
+        MSparepart::deleteById($id);
         
         return redirect()->back()->with(["message"=>"Sparepart Berhasil dihapus!"]);
     }
 
     public function getEdit($id)
     {
-        $msparepart = msparepart::find($id);
+        $msparepart = MSparepart::find($id);
         $form_title = 'Edit Data Sparepart';
         return view('Backend.Sparepart.form',compact('msparepart','form_title'));
     }

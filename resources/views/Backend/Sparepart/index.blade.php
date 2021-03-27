@@ -72,7 +72,7 @@
                               </i>
                               Edit
                           </a>
-                          <a class="btn btn-danger btn-sm" href="{{url('admin/sparepart/delete' .$s->id)}}">
+                          <a class="btn btn-danger btn-sm" href="{{url('admin/sparepart/delete/' .$s->id)}}">
                               <i class="fas fa-trash">
                               </i>
                               Delete

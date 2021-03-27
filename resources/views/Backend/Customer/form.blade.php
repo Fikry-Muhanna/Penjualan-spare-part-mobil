@@ -4,6 +4,9 @@
 @section('content')
 
     <!-- Main content -->
+    <a class="btn btn-danger btn-sm" href="{{url('admin/customer/index')}}">
+    Kembali
+    </a>
     <section class="content">
       <div class="row">
         <div class="col-md-6">

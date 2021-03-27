@@ -44,7 +44,7 @@
             </a>
             <li class="nav-item">
             <a href="{{url('admin/useradmin/index')}}" class="nav-link">
-              <i class="nav-icon fas fa-tree"></i>
+              <i class="nav-icon fas fa-user"></i>
               <p>
                 User Admin
               </p>
@@ -72,7 +72,7 @@
             </a>
           <li class="nav-item">
             <a href="{{route('customerIndex')}}" class="nav-link">
-              <i class="nav-icon fas fa-tree"></i>
+              <i class="nav-icon fas fa-users"></i>
               <p>
                 Customer
               </p>

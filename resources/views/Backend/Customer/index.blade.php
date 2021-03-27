@@ -44,7 +44,6 @@
             </tr>
         </thead>
         <tbody>
-        <?php $no = 1; ?>
         @foreach($customers as $c)
         <tr>
         <td>{{ $c->id }}</td>

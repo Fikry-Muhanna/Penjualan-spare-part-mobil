@@ -4,6 +4,9 @@
 @section('content')
 
     <!-- Main content -->
+    <a class="btn btn-danger btn-sm" href="{{url('admin/sparepart/index')}}">
+  Kembali
+  </a>
     <section class="content">
       <div class="row">
         <div class="col-md-6">
@@ -22,19 +25,19 @@
             <div class="card-body">
               <div class="form-group">
                 <label for="inputName">Nama</label>
-                <input type="text" id="inputName" class="form-control" name="name" value="{{ isset($spareparts) ? $spareparts->name : null }}" required>
+                <input type="text" id="inputName" class="form-control" name="name" value="{{ isset($msparepart) ? $msparepart->name : null }}" required>
               </div>
               <div class="form-group">
                 <label for="inputCategories">Kategori</label>
-                <input type="text" id="inputCategories" class="form-control" name="m_categories_id" value="{{ isset($spareparts) ? $spareparts->m_categories_id : null }}" required>
+                <input type="text" id="inputCategories" class="form-control" name="m_categories_id" value="{{ isset($msparepart) ? $msparepart->m_categories_id : null }}" required>
               </div>
               <div class="form-group">
                 <label for="inputPrice">Harga</label>
-                <input type="number" id="inputPrice" class="form-control" name="price" value="{{ isset($spareparts) ? $spareparts->price : null }}" required>
+                <input type="number" id="inputPrice" class="form-control" name="price" value="{{ isset($msparepart) ? $msparepart->price : null }}" required>
               </div>
               <div class="form-group">
                 <label for="inputDescription">Deskripsi</label>
-                <input type="text" id="inputDescription" class="form-control" name="description" value="{{ isset($spareparts) ? $spareparts->description : null }}" required>
+                <input type="text" id="inputDescription" class="form-control" name="description" value="{{ isset($msparepart) ? $msparepart->description : null }}" required>
               </div>
             </div>
             <!-- /.card-body -->

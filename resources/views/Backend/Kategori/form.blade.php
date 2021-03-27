@@ -4,6 +4,11 @@
 @section('content')
 
     <!-- Main content -->
+    <div class="content-header">
+    <a href="{{url('admin/kategori/index')}}" class="btn btn-danger">
+    Kembali</a>  
+    </div>
+  
     <section class="content">
       <div class="row">
         <div class="col-md-6">
@@ -22,7 +27,7 @@
             <div class="card-body">
               <div class="form-group">
                 <label for="inputName">Nama</label>
-                <input type="text" id="inputName" class="form-control" name="name" value="{{ isset($m_categories) ? $m_categories->name : null }}" required>
+                <input type="text" id="inputName" class="form-control" name="name" value="{{ isset($mcategories) ? $mcategories->name : null }}" required>
               </div>
             </div>
             <!-- /.card-body -->
