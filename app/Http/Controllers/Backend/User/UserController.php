@@ -61,8 +61,22 @@ class UserController extends BaseController
     {
         $useradmin = useradmin::find($id);
         $form_title = 'Edit Data User';
-        return view('Backend.User.form',compact('useradmin','form_title'));
+        return view('Backend.User.form',compact('id','useradmin','form_title'));
     }
  
+    public function getSearch(Request $request)
+    {
+       
+        $search = $request->search;
+ 
+        // mengambil data dari table pegawai sesuai pencarian data
+        $useradmin = DB::table('user_admin')
+        ->where('name','like',"%".$search."%")
+        ->paginate(10);
+
+        // mengirim data pegawai ke view index
+        return view('Backend.User.index',['$useradmin' => $useradmin]);
+
+    }
 }
 

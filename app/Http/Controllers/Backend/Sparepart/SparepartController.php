@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
 use App\Repositories\MSparepart;
+use App\Repositories\MCategories;
+
+
 
 class SparepartController extends BaseController
 {
@@ -17,10 +20,11 @@ class SparepartController extends BaseController
 
     }
  
-    public function getAdd()
+    public function getAdd(MCategories $mcategories)
     {
+        $mcategories = MCategories::latest();
         $form_title = 'tambah data customer';
-        return view('Backend.Sparepart.form', compact('form_title'));
+        return view('Backend.Sparepart.form', compact('mcategories','form_title'));
 
     }
  
@@ -63,8 +67,22 @@ class SparepartController extends BaseController
     public function getEdit($id)
     {
         $msparepart = MSparepart::find($id);
+        $mcategories = MCategories::latest();
         $form_title = 'Edit Data Sparepart';
-        return view('Backend.Sparepart.form',compact('msparepart','form_title'));
+        return view('Backend.Sparepart.form',compact('id','msparepart','form_title'));
+    }
+
+    public function getSearch(Request $request)
+    {
+       
+        $search = $request->search;
+ 
+        $msparepart = DB::table('m_sparepart')
+        ->where('name','like',"%".$search."%")
+        ->paginate(10);
+
+        return view('Backend.Sparepart.index',['msparepart' => $msparepart]);
+
     }
  
 }

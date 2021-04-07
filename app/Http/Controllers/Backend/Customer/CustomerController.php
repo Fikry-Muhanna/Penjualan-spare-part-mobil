@@ -7,6 +7,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
 use App\Repositories\Customers;
 
+
 class CustomerController extends BaseController
 {
     public function getIndex()
@@ -57,7 +58,19 @@ class CustomerController extends BaseController
     {
         $customers = Customers::find($id);
         $form_title = 'edit data customer';
-        return view('Backend.Customer.form',compact('customers','form_title'));
+        return view('Backend.Customer.form',compact('id','customers','form_title'));
     }
  
+    public function getSearch(Request $request)
+    {
+       
+        $search = $request->search;
+ 
+        $customers = DB::table('customers')
+        ->where('name','like',"%".$search."%")
+        ->paginate(10);
+
+        return view('Backend.Customer.index',['customers' => $customers]);
+
+    }
 }

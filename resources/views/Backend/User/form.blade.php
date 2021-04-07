@@ -10,12 +10,12 @@
     <section class="content">
       <div class="row">
         <div class="col-md-6">
+          <form action="{{url('admin/useradmin/save')}}" method="POST">
+          {!! csrf_field() !!}
+          <input type='hidden' name='id' value='{{ isset($id) ? $id:null }}'/>
           <div class="card card-primary">
             <div class="card-header">
               <h3 class="card-title">Tambah Data User</h3>
-              <form action="{{url('admin/useradmin/save')}}" method="POST">
-              {!! csrf_field() !!}
-
               <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                   <i class="fas fa-minus"></i>
@@ -41,15 +41,13 @@
               <div class="row">
                 <div class="col-12">
                 <a href="{{url('admin/useradmin/index')}}" class="btn btn-secondary">Cancel</a>
-          
-            <input type="submit" value="Save" class="btn btn-success float-right-mb-3">
-            </div>
-          
-            </div>
+                <input type="submit" value="Save" class="btn btn-success float-right-mb-3">
+                </div>
+              </div>
             </div>
           </div>
           <!-- /.card -->
-       
+        </form>
           <!-- /.card -->
         </div>
       </div>

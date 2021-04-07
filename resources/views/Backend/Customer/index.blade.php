@@ -3,6 +3,21 @@
 @section('page_name','Toko Spare Part | Customer')
 
 @section('content')
+
+
+<!-- Content Header (Page header) -->
+<div class="content-header">
+  <div class="row mb-2">
+    <div class="col-sm-6">
+    <h1 class="m-0">Customer</h1>
+    <hr class="my-4">     
+    <a href="{{url('admin/customer/add')}}" class="btn btn-primary">
+    Create</a>  
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+  <!-- /.content-header -->
+</div>
  <!-- Main content -->
  <section class="content">
  
@@ -14,21 +29,21 @@
 <div class="card">
   <div class="card-header">
     <h3 class="card-title">Data Customer</h3>
-    
-
     <div class="card-tools">
-      <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-        <i class="fas fa-minus"></i>
-      </button>
-      <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-        <i class="fas fa-times"></i>
-      </button>
+      <form action="{{url('admin/customer/search')}}" method="GET">
+      <div class="input-group input-group-sm" style="width: 150px;">
+        <input type="text" name="search" class="form-control float-right" placeholder="Search">
+        <div class="input-group-append">
+          <button type="submit" class="btn btn-default">
+          <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>  
+      </form>
     </div>
   </div>
   <div class="card-body p-0">
-  <a class="btn btn-primary btn-sm" href="{{url('admin/customer/add')}}">
-  Create
-  </a>
+  
     <table class="table table-striped projects">
         <thead>
             <tr>

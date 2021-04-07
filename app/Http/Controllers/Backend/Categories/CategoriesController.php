@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
 use App\Repositories\MCategories;
+use View;
 
 
 class CategoriesController extends BaseController
@@ -13,7 +14,7 @@ class CategoriesController extends BaseController
     public function getIndex()
     {
         $mcategories = MCategories::latest();
-
+        
         return view('Backend.Kategori.index', compact('mcategories'));
 
     }
@@ -55,7 +56,19 @@ class CategoriesController extends BaseController
     {
         $mcategories = MCategories::find($id);
         $form_title = 'Edit Data Kategori';
-        return view('Backend.Kategori.form',compact('mcategories','form_title'));
+        return view('Backend.Kategori.form',compact('id','mcategories','form_title'));
     }
- 
+    
+    public function getSearch(Request $request)
+    {
+       
+        $search = $request->search;
+         
+        $mcategories = DB::table('m_categories')
+        ->where('name','like',"%".$search."%")
+        ->paginate(10);
+
+        return view('Backend.Kategori.index',['mcategories' => $mcategories]);
+
+    }
 }

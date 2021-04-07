@@ -63,7 +63,19 @@ class TransactionController extends BaseController
     {
         $transactions = Transactions::find($id);
         $form_title = 'Edit Data Transaksi';
-        return view('Backend.Transaction.form',compact('transactions','form_title'));
+        return view('Backend.Transaction.form',compact('id','transactions','form_title'));
     }
  
+    public function getSearch(Request $request)
+    {
+       
+        $search = $request->search;
+ 
+        $transactions = DB::table('transactions')
+        ->where('customer_id','like',"%".$search."%")
+        ->paginate(10);
+
+        return view('Backend.Transaction.index',['transactions' => $transactions]);
+
+    }
 }

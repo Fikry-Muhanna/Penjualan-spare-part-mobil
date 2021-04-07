@@ -27,21 +27,21 @@
 <div class="card">
   <div class="card-header">
     <h3 class="card-title">Data Kategori</h3>
-
     <div class="card-tools">
-      <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-        <i class="fas fa-minus"></i>
-      </button>
-      <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-        <i class="fas fa-times"></i>
-      </button>
+      <form action="{{url('admin/kategori/search')}}" method="GET">
+      <div class="input-group input-group-sm" style="width: 150px;">
+        <input type="text" name="search" class="form-control float-right" placeholder="Search">
+        <div class="input-group-append">
+          <button type="submit" class="btn btn-default">
+          <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>  
+      </form>
     </div>
-    </div>
+  </div>
  
   <div class="card-body p-0">
-  
-  
-  
     <table class="table table-striped projects">
         <thead>
             <tr>

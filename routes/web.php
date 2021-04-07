@@ -18,6 +18,7 @@ Route::group(["prefix"=>"admin"], function() {
         Route::get("/useradmin/detail/{id}","App\Http\Controllers\Backend\User\UserController@getDetail");
         Route::get("/useradmin/delete/{id}","App\Http\Controllers\Backend\User\UserController@getDelete");
         Route::post("/useradmin/save","App\Http\Controllers\Backend\User\UserController@postSave");
+        Route::get("/useradmin/search","App\Http\Controllers\Backend\User\UserController@getSearch");
 
         Route::get("/customer/index","App\Http\Controllers\Backend\Customer\CustomerController@getIndex")->name('customerIndex');
         Route::get("/customer/edit/{id}","App\Http\Controllers\Backend\Customer\CustomerController@getEdit")->name('customerForm');
@@ -25,13 +26,15 @@ Route::group(["prefix"=>"admin"], function() {
         Route::get("/customer/detail/{id}","App\Http\Controllers\Backend\Customer\CustomerController@getDetail");
         Route::get("/customer/delete/{id}","App\Http\Controllers\Backend\Customer\CustomerController@getDelete")->name('customerDelete');
         Route::post("/customer/save","App\Http\Controllers\Backend\Customer\CustomerController@postSave")->name('customerSave');
+        Route::get("/customer/search","App\Http\Controllers\Backend\Customer\CustomerController@getSearch");
         
-        Route::get("/transaksi/index","App\Http\Controllers\Backend\Transaction\TransactionController@getIndex")->name('transactionIndex');
+        Route::get("/transaksi/index","App\Http\Controllers\Backend\Transaction\TransactionController@getIndex");
         Route::get("/transaksi/edit/{id}","App\Http\Controllers\Backend\Transaction\TransactionController@getEdit");
         Route::get("/transaksi/add","App\Http\Controllers\Backend\Transaction\TransactionController@getAdd");
         Route::get("/transaksi/detail/{id}","App\Http\Controllers\Backend\Transaction\TransactionController@getDetail");
         Route::get("/transaksi/delete/{id}","App\Http\Controllers\Backend\Transaction\TransactionController@getDelete");
         Route::post("/transaksi/save","App\Http\Controllers\Backend\Transaction\TransactionController@postSave");
+        Route::get("/transaksi/search","App\Http\Controllers\Backend\Transaction\TransactionController@getSearch");
         
         Route::get("/sparepart/index","App\Http\Controllers\Backend\Sparepart\SparepartController@getIndex");
         Route::get("/sparepart/edit/{id}","App\Http\Controllers\Backend\Sparepart\SparepartController@getEdit");
@@ -39,13 +42,16 @@ Route::group(["prefix"=>"admin"], function() {
         Route::get("/sparepart/detail/{id}","App\Http\Controllers\Backend\Sparepart\SparepartController@getDetail");
         Route::post("/sparepart/save","App\Http\Controllers\Backend\Sparepart\SparepartController@postSave");
         Route::get("/sparepart/delete/{id}","App\Http\Controllers\Backend\Sparepart\SparepartController@getDelete");
+        Route::get("/sparepart/search","App\Http\Controllers\Backend\Sparepart\SparepartController@getSearch");
         
+
         Route::get("/kategori/index","App\Http\Controllers\Backend\Categories\CategoriesController@getIndex");
         Route::get("/kategori/edit/{id}","App\Http\Controllers\Backend\Categories\CategoriesController@getEdit");
         Route::get("/kategori/add","App\Http\Controllers\Backend\Categories\CategoriesController@getAdd");
         Route::get("/kategori/detail/{id}","App\Http\Controllers\Backend\Categories\CategoriesController@getDetail");
         Route::post("/kategori/save","App\Http\Controllers\Backend\Categories\CategoriesController@postSave");
         Route::get("/kategori/delete/{id}","App\Http\Controllers\Backend\Categories\CategoriesController@getDelete");
+        Route::get("/kategori/search","App\Http\Controllers\Backend\Categories\CategoriesController@getSearch");
         
         Route::get("/transdetail/index","App\Http\Controllers\Backend\TransactionDetail\TransactionDetailController@getIndex");
         Route::get("/transdetail/edit/{id}","App\Http\Controllers\Backend\TransactionDetail\TransactionDetailController@getEdit");
@@ -53,6 +59,7 @@ Route::group(["prefix"=>"admin"], function() {
         Route::get("/transdetail/detail/{id}","App\Http\Controllers\Backend\TransactionDetail\TransactionDetailController@getDetail");
         Route::get("/transdetail/delete/{id}","App\Http\Controllers\Backend\TransactionDetail\TransactionDetailController@getDelete");
         Route::post("/transdetail/save","App\Http\Controllers\Backend\TransactionDetail\TransactionDetailController@postSave");
+        Route::get("/transdetail/search","App\Http\Controllers\Backend\TransactionDetail\TransactionDetailController@getSearch");
     
     });
 });
