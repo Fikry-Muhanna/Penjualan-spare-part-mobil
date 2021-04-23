@@ -4,7 +4,7 @@
 @section('content')
 
     <!-- Main content -->
-    <a class="btn btn-danger btn-sm" href="{{url('admin/transaksi/index')}}">
+    <a class="btn btn-danger btn-sm" href="{{url('admin/useradmin/index')}}">
   Kembali
   </a>
     <section class="content">
@@ -29,11 +29,11 @@
               </div>
               <div class="form-group">
                 <label for="inputEmail">Email</label>
-                <input type="text" id="inputEmail" class="form-control" name="email" value="{{ isset($useradmin) ? $useradmin->email : null }}" required>
+                <input type="email" id="inputEmail" class="form-control" name="email" value="{{ isset($useradmin) ? $useradmin->email : null }}" required>
               </div>
               <div class="form-group">
                 <label for="inputPassword">Password</label>
-                <input type="text" id="inputPassword" class="form-control" name="password" value="{{ isset($useradmin) ? $useradmin->password : null }}" required>
+                <input type="password" id="inputPassword" class="form-control" name="password" value="{{ isset($useradmin) ? $useradmin->password : null }}" required>
               </div>
             </div>
             <!-- /.card-body -->

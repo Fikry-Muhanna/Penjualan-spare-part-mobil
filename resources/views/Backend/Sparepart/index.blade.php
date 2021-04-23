@@ -28,9 +28,9 @@
     <h3 class="card-title">Data Sparepart</h3>
 
     <div class="card-tools">
-    <form action="{{url('admin/sparepart/search')}}" method="GET">
+    <form action="{{url('admin/sparepart/index')}}" method="GET">
       <div class="input-group input-group-sm" style="width: 150px;">
-        <input type="text" name="search" class="form-control float-right" placeholder="Search">
+        <input type="text" name="search" class="form-control float-right" placeholder="Search" value="{{request('search')}}">
         <div class="input-group-append">
           <button type="submit" class="btn btn-default">
           <i class="fas fa-search"></i>
@@ -72,7 +72,7 @@
         <tr>
         <td>{{ $s->id }}</td>
         <td>{{ $s->name }}</td>
-        <td>{{ $s->m_categories_id }}</td>
+        <td>{{ $s->category }}</td>
         <td>{{ $s->price }}</td>
         <td>{{ $s->description }}</td>
         <td>
@@ -98,6 +98,7 @@
          @endforeach
                 </tbody>
           </table>
+          {!! $msparepart->links() !!}
         </div>
         <!-- /.card-body -->
       </div>

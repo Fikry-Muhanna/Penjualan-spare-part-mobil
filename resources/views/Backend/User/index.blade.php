@@ -29,9 +29,9 @@
     <h3 class="card-title">Data User Admin</h3>
 
     <div class="card-tools">
-    <form action="{{url('admin/useradmin/search')}}" method="GET">
+    <form action="{{url('admin/useradmin/index')}}" method="GET">
       <div class="input-group input-group-sm" style="width: 150px;">
-        <input type="text" name="search" class="form-control float-right" placeholder="Search">
+        <input type="text" name="search" class="form-control float-right" placeholder="Search"  value="{{request('search')}}">
         <div class="input-group-append">
           <button type="submit" class="btn btn-default">
           <i class="fas fa-search"></i>
@@ -57,11 +57,7 @@
                 <th style="width: 30%">
                     Email
                 </th>
-                <th>
-                    Password
-                </th>
-                <th style="width: 20%">
-                </th>
+              
             </tr>
         </thead>
         <tbody>
@@ -70,7 +66,7 @@
         <td>{{ $u->id }}</td>
         <td>{{ $u->name }}</td>
         <td>{{ $u->email }}</td>
-        <td>{{ $u->password }}</td>
+        
         <td>
         <td class="project-actions text-right">
                           <a class="btn btn-primary btn-sm" href="{{url('admin/useradmin/detail/' .$u->id)}}">

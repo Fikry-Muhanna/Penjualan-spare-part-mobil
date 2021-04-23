@@ -6,21 +6,22 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
 use App\Repositories\Transactions;
+use App\Repositories\Customers;
 
 class TransactionController extends BaseController
 {
     public function getIndex()
     {
-        $transactions = Transactions::latest();
-
+        $transactions = Transactions::findAllDataPaginate(10,request('search'));
         return view('Backend.Transaction.index', compact('transactions'));
 
     }
  
-    public function getAdd()
+    public function getAdd(Customers $customers)
     {
+        $customers = Customers::latest();
         $form_title = 'tambah data transaksi';
-        return view('Backend.Transaction.form', compact('form_title'));
+        return view('Backend.Transaction.form', compact('customers','form_title'));
 
     }
  
@@ -46,7 +47,7 @@ class TransactionController extends BaseController
         $transactions = Transactions::find($id);
         return view('Backend.Transaction.detail', [
             'trans_no'=>$transactions->trans_no,
-            'customers_id'=>$transactions->customers_id,
+            'customer_name'=>$transactions->customer()->name,
             'grand_total'=>$transactions->grand_total,
             'created_by'=>$transactions->created_by
         ]);
@@ -62,20 +63,10 @@ class TransactionController extends BaseController
     public function getEdit($id)
     {
         $transactions = Transactions::find($id);
+        $customers = Customers::latest();
         $form_title = 'Edit Data Transaksi';
-        return view('Backend.Transaction.form',compact('id','transactions','form_title'));
+        return view('Backend.Transaction.form',compact('id','transactions','form_title','customers'));
     }
  
-    public function getSearch(Request $request)
-    {
-       
-        $search = $request->search;
- 
-        $transactions = DB::table('transactions')
-        ->where('customer_id','like',"%".$search."%")
-        ->paginate(10);
-
-        return view('Backend.Transaction.index',['transactions' => $transactions]);
-
-    }
+   
 }

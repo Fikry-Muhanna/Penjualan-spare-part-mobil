@@ -13,7 +13,7 @@ class CategoriesController extends BaseController
 {
     public function getIndex()
     {
-        $mcategories = MCategories::latest();
+        $mcategories = MCategories::findAllDataPaginate(10,request('search'));
         
         return view('Backend.Kategori.index', compact('mcategories'));
 

@@ -12,7 +12,7 @@ class CustomerController extends BaseController
 {
     public function getIndex()
     {
-        $customers = Customers::latest();
+        $customers = Customers::findAllDataPaginate(10,request('search'));
 
         return view('Backend.Customer.index', compact('customers'));
 
@@ -61,16 +61,5 @@ class CustomerController extends BaseController
         return view('Backend.Customer.form',compact('id','customers','form_title'));
     }
  
-    public function getSearch(Request $request)
-    {
-       
-        $search = $request->search;
- 
-        $customers = DB::table('customers')
-        ->where('name','like',"%".$search."%")
-        ->paginate(10);
 
-        return view('Backend.Customer.index',['customers' => $customers]);
-
-    }
 }

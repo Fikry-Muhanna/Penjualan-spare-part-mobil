@@ -27,9 +27,9 @@
     <h3 class="card-title">Detail Transaksi</h3>
 
     <div class="card-tools">
-    <form action="{{url('admin/transdetail/search')}}" method="GET">
+    <form action="{{url('admin/transdetail/index')}}" method="GET">
       <div class="input-group input-group-sm" style="width: 150px;">
-        <input type="text" name="search" class="form-control float-right" placeholder="Search">
+        <input type="text" name="search" class="form-control float-right" placeholder="Search"  value="{{request('search')}}">
         <div class="input-group-append">
           <button type="submit" class="btn btn-default">
           <i class="fas fa-search"></i>
@@ -49,16 +49,16 @@
                 <th style="width: 1%">
                     Id
                 </th>
-                <th style="width: 20%">
+                <th>
                     Id Transaksi
                 </th>
-                <th style="width: 30%">
+                <th>
                     Id Sparepart
                 </th>
                 <th>
                     Nama Sparepart
                 </th>
-                <th style="width: 8%" class="text-center">
+                <th>
                     Harga Sparepart
                 </th>
                 <th>

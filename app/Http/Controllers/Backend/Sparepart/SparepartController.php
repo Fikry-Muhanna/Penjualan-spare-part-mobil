@@ -14,7 +14,7 @@ class SparepartController extends BaseController
 {
     public function getIndex()
     {
-        $msparepart = MSparepart::latest();
+        $msparepart = MSparepart::findAllDataPaginate(10,request('search'));
 
         return view('Backend.Sparepart.index', compact('msparepart'));
 
@@ -50,7 +50,7 @@ class SparepartController extends BaseController
         $msparepart = MSparepart::find($id);
         return view('Backend.Sparepart.detail', [
             'name'=>$msparepart->name,
-            'm_categories_id'=>$msparepart->m_categories_id,
+            'category_name'=>$msparepart->category()->name,
             'price'=>$msparepart->price,
             'description'=>$msparepart->description
             ]);
@@ -69,20 +69,9 @@ class SparepartController extends BaseController
         $msparepart = MSparepart::find($id);
         $mcategories = MCategories::latest();
         $form_title = 'Edit Data Sparepart';
-        return view('Backend.Sparepart.form',compact('id','msparepart','form_title'));
+        return view('Backend.Sparepart.form',compact('id','mcategories','msparepart','form_title'));
     }
 
-    public function getSearch(Request $request)
-    {
-       
-        $search = $request->search;
- 
-        $msparepart = DB::table('m_sparepart')
-        ->where('name','like',"%".$search."%")
-        ->paginate(10);
-
-        return view('Backend.Sparepart.index',['msparepart' => $msparepart]);
-
-    }
+  
  
 }

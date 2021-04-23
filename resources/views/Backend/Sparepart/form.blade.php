@@ -32,7 +32,7 @@
                     <select name="m_categories_id" class="form-control" value='{{ isset($mcategories) ? $mcategories:null }}'>
                       <option value="">- Pilih -</option>
                       @foreach ($mcategories as $kategori)
-                      <option value="{{$kategori->id}}">{{$kategori->name}}</option>
+                      <option {{ isset($msparepart) && $msparepart->m_categories_id == $kategori->id ? "selected":"" }} value="{{$kategori->id}}">{{$kategori->name}}</option>
                       @endforeach
                       </select>
                   </div>

@@ -4,7 +4,7 @@
 @section('content')
 
     <!-- Main content -->
-    <a class="btn btn-danger btn-sm" href="{{url('admin/transaksi/index')}}">
+    <a class="btn btn-danger btn-sm" href="{{url('admin/transdetail/index')}}">
     Kembali
     </a>
     <section class="content">

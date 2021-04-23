@@ -28,9 +28,14 @@
                 <input type="number" id="inputTransNo" class="form-control" name="trans_no" value="{{ isset($transactions) ? $transactions->trans_no : null }}" required>
               </div>
               <div class="form-group">
-                <label for="inputCustomerId">Id Customer</label>
-                <input type="number" id="inputCustomerId" class="form-control" name="customers_id" value="{{ isset($transactions) ? $transactions->customers_id : null }}" required>
-              </div>
+                    <label> Id Customer </label>
+                    <select name="customers_id" class="form-control" value='{{ isset($customers) ? $customers:null }}'>
+                      <option value="">- Pilih -</option>
+                      @foreach ($customers as $custom)
+                      <option {{ isset($transactions) && $transactions->customers_id == $custom->id ? "selected":"" }} value="{{$custom->id}}">{{$custom->name}}</option>
+                      @endforeach
+                      </select>
+                  </div>
               <div class="form-group">
                 <label for="inputTotalPrice">Total Harga</label>
                 <input type="number" id="inputTotalPrice" class="form-control" name="grand_total" value="{{ isset($transactions) ? $transactions->grand_total : null }}" required>

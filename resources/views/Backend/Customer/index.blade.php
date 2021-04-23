@@ -30,9 +30,9 @@
   <div class="card-header">
     <h3 class="card-title">Data Customer</h3>
     <div class="card-tools">
-      <form action="{{url('admin/customer/search')}}" method="GET">
+      <form action="{{url('admin/customer/index')}}" method="GET">
       <div class="input-group input-group-sm" style="width: 150px;">
-        <input type="text" name="search" class="form-control float-right" placeholder="Search">
+        <input type="text" name="search" class="form-control float-right" placeholder="Search" value="{{request('search')}}">
         <div class="input-group-append">
           <button type="submit" class="btn btn-default">
           <i class="fas fa-search"></i>

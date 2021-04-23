@@ -11,7 +11,7 @@ class TransactionDetailController extends BaseController
 {
     public function getIndex()
     {
-        $transactiondetail = transactiondetail::latest();
+        $transactiondetail = transactiondetail::findAllDataPaginate(10,request('search'));
 
         return view('Backend.TransactionDetail.index', compact('transactiondetail'));
 

@@ -12,7 +12,7 @@ class UserController extends BaseController
 {
     public function getIndex()
     {
-        $useradmin = useradmin::latest();
+        $useradmin = useradmin::findAllDataPaginate(10,request('search'));
 
         return view('Backend.User.index', compact('useradmin'));
 

@@ -28,7 +28,7 @@
 
             <strong><i class="fas fa-th mr-1"></i> Id Customer </strong>
 
-            <p class="text-muted">{{ $customers_id }}</p>
+            <p class="text-muted">{{ $customer_name }}</p>
 
             <hr>
 

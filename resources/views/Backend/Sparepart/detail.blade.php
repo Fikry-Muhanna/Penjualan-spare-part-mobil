@@ -28,7 +28,7 @@
 
             <strong><i class="fas fa-th mr-1"></i> Kategori </strong>
 
-            <p class="text-muted">{{ $m_categories_id }}</p>
+            <p class="text-muted">{{ $category_name }}</p>
 
             <hr>
 
