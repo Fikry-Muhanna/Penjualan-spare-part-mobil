@@ -90,6 +90,7 @@
                      
                 </tbody>
           </table>
+          {!! $customers->links() !!}
         </div>
         <!-- /.card-body -->
       </div>

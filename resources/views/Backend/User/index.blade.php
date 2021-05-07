@@ -90,6 +90,7 @@
          @endforeach
                 </tbody>
           </table>
+          {!! $useradmin->links() !!}
         </div>
         <!-- /.card-body -->
       </div>

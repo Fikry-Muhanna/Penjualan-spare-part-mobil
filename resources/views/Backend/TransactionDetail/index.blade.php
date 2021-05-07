@@ -50,10 +50,7 @@
                     Id
                 </th>
                 <th>
-                    Id Transaksi
-                </th>
-                <th>
-                    Id Sparepart
+                    No Transaksi
                 </th>
                 <th>
                     Nama Sparepart
@@ -75,8 +72,7 @@
         @foreach($transactiondetail as $d)
         <tr>
         <td>{{ $d->id }}</td>
-        <td>{{ $d->transaction_id }}</td>
-        <td>{{ $d->m_sparepart_id }}</td>
+        <td>{{ $d->transactions_no }}</td>
         <td>{{ $d->sparepart_name }}</td>
         <td>{{ $d->sparepart_price }}</td>
         <td>{{ $d->quantity }}</td>
@@ -104,6 +100,7 @@
          @endforeach
                 </tbody>
           </table>
+          {!! $transactiondetail->links() !!}
         </div>
         <!-- /.card-body -->
       </div>

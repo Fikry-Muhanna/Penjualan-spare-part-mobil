@@ -59,16 +59,5 @@ class CategoriesController extends BaseController
         return view('Backend.Kategori.form',compact('id','mcategories','form_title'));
     }
     
-    public function getSearch(Request $request)
-    {
-       
-        $search = $request->search;
-         
-        $mcategories = DB::table('m_categories')
-        ->where('name','like',"%".$search."%")
-        ->paginate(10);
-
-        return view('Backend.Kategori.index',['mcategories' => $mcategories]);
-
-    }
+ 
 }

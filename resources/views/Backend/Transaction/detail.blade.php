@@ -26,7 +26,7 @@
 
             <hr>
 
-            <strong><i class="fas fa-th mr-1"></i> Id Customer </strong>
+            <strong><i class="fas fa-th mr-1"></i> Nama Customer </strong>
 
             <p class="text-muted">{{ $customer_name }}</p>
 
@@ -61,7 +61,17 @@
           <!-- /.card -->
         </div>
       </div>
-     
+      <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Detail Transaksi</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+               
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
       </div>
     </section>
     <!-- /.content -->

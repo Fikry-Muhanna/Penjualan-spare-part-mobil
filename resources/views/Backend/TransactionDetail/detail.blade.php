@@ -20,15 +20,9 @@
               </div>
             </div>
             <div class="card-body">
-            <strong><i class="fas fa-book mr-1"></i> Id Transaksi </strong>
+            <strong><i class="fas fa-book mr-1"></i> No Transaksi </strong>
 
-            <p class="text-muted"> {{ $transactions_id }} </p>
-
-            <hr>
-
-            <strong><i class="fas fa-th mr-1"></i> Id Sparepart </strong>
-
-            <p class="text-muted">{{ $m_sparepart_id }}</p>
+            <p class="text-muted"> {{ $transactions_no }} </p>
 
             <hr>
 

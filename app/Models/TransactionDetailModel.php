@@ -8,6 +8,7 @@ class TransactionDetailModel extends Model
     
 	public $id;
 	public $transactions_id;
+	public $transactions_no;
 	public $m_sparepart_id;
 	public $sparepart_name;
 	public $sparepart_price;

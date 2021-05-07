@@ -28,7 +28,7 @@
                 <input type="number" id="inputTransNo" class="form-control" name="trans_no" value="{{ isset($transactions) ? $transactions->trans_no : null }}" required>
               </div>
               <div class="form-group">
-                    <label> Id Customer </label>
+                    <label> Nama Customer </label>
                     <select name="customers_id" class="form-control" value='{{ isset($customers) ? $customers:null }}'>
                       <option value="">- Pilih -</option>
                       @foreach ($customers as $custom)

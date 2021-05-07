@@ -56,7 +56,7 @@
                     No. Transaksi
                 </th>
                 <th style="width: 8%" class="text-center">
-                    Id Customer
+                    Nama Customer
                 </th>
                 <th style="width: 15%">
                     Total Harga
